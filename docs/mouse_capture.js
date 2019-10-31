@@ -24,4 +24,13 @@ $(document).mousemove(function(e) {
     $("#cursorXT").text(wx);
     $("#cursorYT").text(wy);
 
+    //$("#eye").attr("src");, "images/card-front.jpg");
+    if(wy > 0) {
+	$("#eye").attr("src", "images/sample.jpg");
+    }
+    else {
+	$("#eye").attr("src", "images/sample2.jpg");
+    }
+
+
 });
