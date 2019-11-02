@@ -1,19 +1,30 @@
+$( document ).ready(function(e) {
+    draw_all(e)
+
+});
 
 $(document).mousemove(function(e) {
+    draw_all(e);
+});
+
+
+function draw_all(e) {
     window.x = e.pageX;
     window.y = e.pageY;
+
+    // What to set at page load
+    if (typeof window.x == 'undefined') window.x = 0;
+    if (typeof window.y == 'undefined') window.y = 0;
 
     $("#cursorX").text(window.x);
     $("#cursorY").text(window.y);
 
-    let box = $("#target");
-    draw(box, true)
+    let boxes = $(".eye");
+    boxes.each(function() {draw_single($(this))});
+}
 
-    draw($("#target2"));
-});
+function draw_single(box, report=false) {
 
-
-function draw(box, report=false) {
 
     // Find pixel offset from the center of the box
     let wx = window.x - box.offset().left - box.width()/2;
