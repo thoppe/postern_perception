@@ -6,7 +6,14 @@ $(document).mousemove(function(e) {
     $("#cursorX").text(window.x);
     $("#cursorY").text(window.y);
 
-    let box = $("#eye");
+    let box = $("#target");
+    draw(box, true)
+
+    draw($("#target2"));
+});
+
+
+function draw(box, report=false) {
 
     // Find pixel offset from the center of the box
     let wx = window.x - box.offset().left - box.width()/2;
@@ -15,7 +22,6 @@ $(document).mousemove(function(e) {
     // Get relative coordinates
     wx /= $(window).width();
     wy /= $(window).height();
-
 
     // Scale coordinates to match known images
     
@@ -27,12 +33,15 @@ $(document).mousemove(function(e) {
 
     wx = Math.round(wx)
     wy = Math.round(wy)
+    
 
     let f_img = `eye/${wx}_${wy}.jpg`
+    box.attr("src", f_img);
+
+    if(!report) return true;
+
     $("#filename").text(f_img);
-    $("#eye").attr("src", f_img);
-    
     $("#cursorXT").text(wx);
     $("#cursorYT").text(wy);
 
-});
+}
