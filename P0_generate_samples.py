@@ -22,9 +22,12 @@ if os.path.exists(save_dest):
 
 os.system(f"mkdir -p {save_dest}")
 
+a0_scale = 2.0
+a1_scale = 2.0
+
 # Create the angle space
-A0 = np.linspace(-1, 1, 5)
-A1 = np.linspace(-1, 1, 5)
+A0 = np.linspace(-1, 1, 5)*a0_scale
+A1 = np.linspace(-1, 1, 5)*a1_scale
 AX, AY = np.meshgrid(A0, A1)
 angles = np.array([AX.ravel(), AY.ravel()]).T
 
@@ -37,7 +40,7 @@ img = img.astype(np.float32) / 127.5 - 1.0
 
 tf_config = tf.compat.v1.ConfigProto()
 tf_config.gpu_options.allow_growth = True
-load_dest = "models/log"
+load_dest = "models/eye"
 assert(os.path.exists(load_dest))
 checkpoint = tf.train.latest_checkpoint(load_dest)
 
@@ -56,7 +59,17 @@ with tf.compat.v1.Session(config=tf_config) as sess:
             img_g = sess.run(gen, feed_dict=feed_dict)
 
             for (angle, img) in zip(angles, img_g):
-                f_save = f"{angle[0]:0.5f}_{angle[1]:0.5f}.jpg"
+
+                a0 = angle[0]/a0_scale
+                a1 = angle[1]/a1_scale
+
+                a0 = int(a0*2)
+                a1 = int(a1*2)
+                
+                
+                #f_save = f"{a0:0.5f}_{a1:0.5f}.jpg"
+                f_save = f"{a0}_{a1}.jpg"
+                
                 f_save = os.path.join(save_dest, f_save)
                 imsave(f_save, img)
                 print(f_save)

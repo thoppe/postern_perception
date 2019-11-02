@@ -6,7 +6,7 @@ $(document).mousemove(function(e) {
     $("#cursorX").text(window.x);
     $("#cursorY").text(window.y);
 
-    let box = $("#TARGET");
+    let box = $("#eye");
 
     // Find pixel offset from the center of the box
     let wx = window.x - box.offset().left - box.width()/2;
@@ -16,21 +16,23 @@ $(document).mousemove(function(e) {
     wx /= $(window).width();
     wy /= $(window).height();
 
-    // Clip and scale
-    wx = Math.max(-0.5, Math.min(wx, 0.5)) * 2
-    wy = Math.max(-0.5, Math.min(wy, 0.5)) * 2
 
+    // Scale coordinates to match known images
+    
+    wx *= 10
+    wy *= 10
+
+    wx = Math.max(-2, Math.min(wx, 2))
+    wy = Math.max(-2, Math.min(wy, 2))
+
+    wx = Math.round(wx)
+    wy = Math.round(wy)
+
+    let f_img = `eye/${wx}_${wy}.jpg`
+    $("#filename").text(f_img);
+    $("#eye").attr("src", f_img);
     
     $("#cursorXT").text(wx);
     $("#cursorYT").text(wy);
-
-    //$("#eye").attr("src");, "images/card-front.jpg");
-    if(wy > 0) {
-	$("#eye").attr("src", "images/sample.jpg");
-    }
-    else {
-	$("#eye").attr("src", "images/sample2.jpg");
-    }
-
 
 });
