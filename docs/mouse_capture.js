@@ -1,6 +1,19 @@
 $( document ).ready(function(e) {
-    draw_all(e)
 
+    let n_cols = 8;
+    let n_rows = 5;
+
+    let box = $(".horrorbox");
+
+    for (j = 0; j < n_rows; j++) {
+	for (i = 0; i < n_cols; i++) {
+	    box.append('<img class="eye">');
+	}
+    }
+
+
+    draw_all(e)
+    
 });
 
 $(document).mousemove(function(e) {

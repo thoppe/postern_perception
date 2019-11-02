@@ -1,23 +1,19 @@
-.deadcenter {
-    position: absolute;
-/*
-    height: 200px;
-    width: 200px;
-*/
-    margin: -200px 0 0 -200px;
-    top: 50%;
-    left: 50%;
-}
 
 .eye {
-
-    width: 10vw;
-    height: 10vw;
+    width: 12vw;
+    height: 12vw;
+    /*
     margin: 0.5vw auto;
+*/
 }
 
-.eyegrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.horrorbox {
+    display: flex;
+
+
+    flex-wrap: wrap;
+
+    /*
+    justify-content: space-between;
+*/
 }
