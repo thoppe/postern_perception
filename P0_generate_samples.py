@@ -1,4 +1,6 @@
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 import numpy as np
 import tensorflow as tf
 import cv2
@@ -21,19 +23,23 @@ if os.path.exists(save_dest):
 os.system(f"mkdir -p {save_dest}")
 
 # Create the angle space
-A0 = np.linspace(-1, 1, 20)
-A1 = np.linspace(-1, 1, 20)
+A0 = np.linspace(-1, 1, 5)
+A1 = np.linspace(-1, 1, 5)
 AX, AY = np.meshgrid(A0, A1)
 angles = np.array([AX.ravel(), AY.ravel()]).T
 
 img = cv2.imread(target_image)
 img = cv2.resize(img, (64, 64))
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
 img = img.astype(np.float32) / 127.5 - 1.0
 
 
 tf_config = tf.compat.v1.ConfigProto()
 tf_config.gpu_options.allow_growth = True
-checkpoint = tf.train.latest_checkpoint("models/log")
+load_dest = "models/log"
+assert(os.path.exists(load_dest))
+checkpoint = tf.train.latest_checkpoint(load_dest)
 
 gen, tf_angles, tf_input = generator()
 saver = tf.compat.v1.train.Saver()
