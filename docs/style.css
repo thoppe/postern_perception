@@ -1,19 +1,33 @@
-
 .eye {
+
+    width: 9%;
+    height: 9%;
+
+
+
+    
+    /*
+height: 9%;	
     width: 12vw;
     height: 12vw;
-    /*
     margin: 0.5vw auto;
-*/
+    */
 }
 
 .horrorbox {
     display: flex;
-
-
     flex-wrap: wrap;
-
+    margin:auto;
     /*
     justify-content: space-between;
-*/
+    */
+}
+
+.centerbox {
+    width: 95%;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    margin: auto;
+    
+
 }
