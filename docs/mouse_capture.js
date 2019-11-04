@@ -1,4 +1,5 @@
-const max_vision_extent = 2;
+const max_vision_extent = 5;
+const vision_scale = 10;
 
 $( document ).ready(function(e) {
 
@@ -57,8 +58,8 @@ function draw_single(box, window_height, window_width) {
 
     // Scale coordinates to match known images
     
-    wx *= 10
-    wy *= 10
+    wx *= vision_scale;
+    wy *= vision_scale;
 
     wx = Math.max(-max_vision_extent, Math.min(wx, max_vision_extent))
     wy = Math.max(-max_vision_extent, Math.min(wy, max_vision_extent))
