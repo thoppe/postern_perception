@@ -1,13 +1,13 @@
 var magnitude_scale = 10.0;
 
-var left_eye_img = "sample.jpg"
-//./data/training_data/0P/0003_2m_0P_0V_0H_L.jpg
+var target_idx = 43;
+var file_tag = target_idx.toString().padStart(4, "0")
+var left_eye_img = `docs/assets/templates/${file_tag}_L.jpg`
+var right_eye_img = `docs/assets/templates/${file_tag}_R.jpg`
 
-var left_eye_img = "data/training_data/0P/0048_2m_0P_0V_0H_L.jpg"
-var right_eye_img = "data/training_data/0P/0048_2m_0P_0V_0H_R.jpg"
+window.x = 0
+window.y = 0
 
-//var left_eye_img = "data/training_data/0P/0003_2m_0P_0V_0H_L.jpg"
-//var right_eye_img = "data/training_data/0P/0003_2m_0P_0V_0H_R.jpg"
 
 $(document).mousemove(async function(e) {
 
@@ -19,7 +19,6 @@ $(document).mousemove(async function(e) {
 
     box = $("#right-eye");
     update_eye(box, right_eye_img)
-   
 });
 
 async function update_eye(box, f_img, left_eye_adjust=false) {
