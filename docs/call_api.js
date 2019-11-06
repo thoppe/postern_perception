@@ -1,26 +1,33 @@
 var magnitude_scale = 10.0;
 
-var target_idx = 43;
+var target_idx = 48;
 var file_tag = target_idx.toString().padStart(4, "0")
 var left_eye_img = `docs/assets/templates/${file_tag}_L.jpg`
 var right_eye_img = `docs/assets/templates/${file_tag}_R.jpg`
 
-window.x = 0
-window.y = 0
 
-
+$( document ).ready(function(e) {
+    window.x = $(window).width()/2;
+    window.y = 0;
+    draw_all();
+});
+		    
 $(document).mousemove(async function(e) {
 
     window.x = e.pageX;
     window.y = e.pageY;
+    draw_all();
+});
 
+function draw_all() {
     box = $("#left-eye");
     update_eye(box, left_eye_img, left_eye_adjust=true)
 
     box = $("#right-eye");
     update_eye(box, right_eye_img)
-});
+};
 
+			
 async function update_eye(box, f_img, left_eye_adjust=false) {
 
     coords = get_rel_coordinates(box, magnitude_scale);
@@ -34,8 +41,6 @@ async function update_eye(box, f_img, left_eye_adjust=false) {
     //console.log(coords);
         
     var url = "http://127.0.0.1:8000/render";
-
-    //var data = {"a0" : 1.0, "a1" : 0.0,}
 
     const response = await fetch(
 	url,
