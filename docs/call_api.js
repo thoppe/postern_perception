@@ -74,3 +74,46 @@ function get_rel_coordinates(box, scale=1.0) {
 
     return {"a0" : wx, "a1" : wy}
 }
+
+function adjust_target_image(val) {
+    target_idx += val;
+    if(target_idx>56) target_idx = 1;
+    if(target_idx<1) target_idx = 56;
+    
+    file_tag = target_idx.toString().padStart(4, "0");
+    
+    left_eye_img = `docs/assets/templates/${file_tag}_L.jpg`
+    right_eye_img = `docs/assets/templates/${file_tag}_R.jpg`
+
+    local_left = `assets/templates/${file_tag}_L.jpg`
+    local_right = `assets/templates/${file_tag}_R.jpg`
+
+    $("#left-eye").attr("src", local_left);
+    $("#right-eye").attr("src", local_right);
+    //draw_all();
+}
+
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+    case 37:
+	adjust_target_image(-1);
+        break;
+
+    case 38:
+	adjust_target_image(-1);
+        break;
+
+    case 39:
+	adjust_target_image(1);
+        break;
+
+    case 40:
+	adjust_target_image(1);
+        break;
+
+    default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
