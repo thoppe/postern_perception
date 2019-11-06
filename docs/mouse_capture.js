@@ -13,7 +13,7 @@ $( document ).ready(function(e) {
 
     for (j = 0; j < n_rows; j++) {
 	for (i = 0; i < n_cols; i++) {
-	    box.append('<img class="eye">');
+	    box.append('<img class="smalleye">');
 	}
     }
 
@@ -37,7 +37,7 @@ function draw_all(e) {
     //$("#cursorX").text(window.x);
     //$("#cursorY").text(window.y);
 
-    let boxes = $(".eye");
+    let boxes = $(".smalleye");
     let window_height = $(window).height();
     let window_width = $(window).width();
     

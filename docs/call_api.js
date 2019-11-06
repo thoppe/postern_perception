@@ -6,29 +6,33 @@ var left_eye_img = "sample.jpg"
 var left_eye_img = "data/training_data/0P/0048_2m_0P_0V_0H_L.jpg"
 var right_eye_img = "data/training_data/0P/0048_2m_0P_0V_0H_R.jpg"
 
+//var left_eye_img = "data/training_data/0P/0003_2m_0P_0V_0H_L.jpg"
+//var right_eye_img = "data/training_data/0P/0003_2m_0P_0V_0H_R.jpg"
+
 $(document).mousemove(async function(e) {
 
     window.x = e.pageX;
     window.y = e.pageY;
 
     box = $("#left-eye");
-    update_eye(box, left_eye_img)
+    update_eye(box, left_eye_img, left_eye_adjust=true)
 
     box = $("#right-eye");
     update_eye(box, right_eye_img)
-
-    
+   
 });
 
-async function update_eye(box, f_img) {
+async function update_eye(box, f_img, left_eye_adjust=false) {
 
     coords = get_rel_coordinates(box, magnitude_scale);
     coords['f_img'] = f_img
-    
-    let status = `Current coordinates ${coords.a0} ${coords.a1}`;
 
-    $('#status').text(status);
-    console.log(coords);
+    if(left_eye_adjust)
+	coords['a0'] *= -1;
+        
+    //let status = `Current coordinates ${coords.a0} ${coords.a1}`;
+    //$('#status').text(status);
+    //console.log(coords);
         
     var url = "http://127.0.0.1:8000/render";
 

@@ -1,4 +1,11 @@
-.eye {
+body {   
+    font-family: 'Lato', sans-serif;
+    background-color : #EBB6B8;
+    color: FF2C4D;
+
+}
+
+.smalleye {
     width: 9%;
     height: 9%;
 }
@@ -7,7 +14,7 @@
     display: flex;
     flex-wrap: wrap;
     margin:auto;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
 }
 
 .centerbox {
@@ -20,10 +27,10 @@
 .bigeye {
     width : 25vw;
     height : 25vw;
-    margin-left:5vw;
+    margin-left:2vw;
 }
 .bar {
-    background-color : #282828;
+    background-color : #E0E7E0;
     width : 100%;
     padding-top: 2vw;
     padding-bottom: 2vw;
@@ -35,4 +42,22 @@
   margin-right: auto;
   width:80vw;
   text-align: center;
+}
+
+.header {
+    background-color : #EBB6B8;   
+    font-size: 3vw;
+    margin-top: 3vw;
+}
+
+.header h2 {
+    margin: 0;
+    line-height:0.75em;
+}
+
+
+/* Eyes are naturally one direction, have to flip */
+#left-eye {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
