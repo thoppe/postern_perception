@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import cv2
 from scipy.misc import imsave, imread
-
+from functools import lru_cache
 
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
@@ -40,7 +40,8 @@ class eyeGAN:
             saver.restore(self.sess, checkpoint)
 
         return self
-            
+    
+    @lru_cache(maxsize=256)
     def load_image(self, f_img):
         img = cv2.imread(f_img)
         img = cv2.resize(img, (64, 64))

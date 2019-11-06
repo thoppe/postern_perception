@@ -7,14 +7,32 @@
     display: flex;
     flex-wrap: wrap;
     margin:auto;
-    /*
-    justify-content: space-between;
-    */
+    /*justify-content: space-between;*/
 }
 
 .centerbox {
-    width: 50%;
+    width: 90%;
     padding-top: 2vw;
     padding-bottom: 2vw;
     margin: auto;
+}
+
+.bigeye {
+    width : 25vw;
+    height : 25vw;
+    margin-left:5vw;
+}
+.bar {
+    background-color : #282828;
+    width : 100%;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    margin : auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width:80vw;
+  text-align: center;
 }

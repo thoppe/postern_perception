@@ -1,3 +1,8 @@
+'''
+uvicorn API:app --reload --reload-dir '.'
+
+'''
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.responses import Response
@@ -19,6 +24,7 @@ app.add_middleware(
 class Coordinate(BaseModel):
     a0: float
     a1: float
+    f_img: str = "sample.jpg" 
 
 
 @app.get("/")
@@ -28,12 +34,10 @@ def read_root():
 
 @app.post("/render")
 def render(coord: Coordinate):
-
-    # This can be configurable
-    f_img = "sample.jpg"
-
+    print(coord)
+    
     # Multiple images can be generated, here just serve one
-    imgs = G(f_img, [coord.a0], [coord.a1])
+    imgs = G(coord.f_img, [coord.a0], [coord.a1])
 
     # Take on the first (and only!) image
     img = imgs.reshape(*imgs.shape[1:])
