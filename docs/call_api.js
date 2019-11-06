@@ -1,3 +1,5 @@
+var magnitude_scale = 10.0;
+
 
 $(document).mousemove(async function(e) {
 
@@ -10,7 +12,7 @@ $(document).mousemove(async function(e) {
     let window_height = $(window).height();
     let window_width = $(window).width();
 
-    coords = get_rel_coordinates(box, 5.0);
+    coords = get_rel_coordinates(box, magnitude_scale);
     let status = `Current coordinates ${coords.a0} ${coords.a1}`;
 
     $('#status').text(status);

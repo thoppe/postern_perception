@@ -1,15 +1,6 @@
 .eye {
-
     width: 9%;
     height: 9%;
-
-    
-    /*
-height: 9%;	
-    width: 12vw;
-    height: 12vw;
-    margin: 0.5vw auto;
-    */
 }
 
 .horrorbox {
@@ -22,10 +13,8 @@ height: 9%;
 }
 
 .centerbox {
-    width: 95%;
+    width: 50%;
     padding-top: 2vw;
     padding-bottom: 2vw;
     margin: auto;
-    
-
 }
