@@ -1,14 +1,15 @@
 # eyeGAN experiments
 
-Currently working on serving an eye live via a running API.
-
 Note: This model is not completely generative, it needs to copy a source eyeball.
+
+Two demos
+
++ [small eyes](https://thoppe.github.io/eye_tracking/small_eyes.html)
++ [live eyes](https://thoppe.github.io/eye_tracking/live_eyes.html) (needs a webserver running)
 
 Download pretrained model from personal repo.
 
     LOCATION TO BE PLACED HERE.
-
-
 
 
 ## Training a new model

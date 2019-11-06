@@ -2,10 +2,8 @@ const max_vision_extent = 5;
 const vision_scale = 10;
 
 $( document ).ready(function(e) {
-
-    //let n_cols = 8;
-    //let n_rows = 5;
-
+    // Draw the eyes onto the screen
+    
     let n_cols = 11;
     let n_rows = 8;
 
@@ -18,7 +16,6 @@ $( document ).ready(function(e) {
     }
 
     draw_all(e)
-   
 });
 
 $(document).mousemove(function(e) {
@@ -67,15 +64,8 @@ function draw_single(box, window_height, window_width) {
     wx = Math.round(wx)
     wy = Math.round(wy)    
 
-    let f_img = `eye/${wx}_${wy}.jpg`
+    // Load a set image
+    let f_img = `assets/smalleyes/${wx}_${wy}.jpg`
     box.attr("src", f_img);
 
-    /*
-    if(!report)
-	return true;
-
-    $("#filename").text(f_img);
-    $("#cursorXT").text(wx);
-    $("#cursorYT").text(wy);
-    */
 }
