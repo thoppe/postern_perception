@@ -1,0 +1,38 @@
+
+body {   
+    font-family: 'Lato', sans-serif;
+    background-color : #0C0D08;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+#face{
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    min-width: 100%;
+    z-index: 1;
+}
+
+.eye {
+  position: absolute;
+  width: 25vw;
+  height: 25vw;
+  z-index: 0;
+/*  opacity: 0.5;*/
+
+}
+
+#right-eye {
+  left: 65vw; 
+  top: 15.5vw;
+}
+
+
+#left-eye {
+  left: 20vw; 
+  top: 17vw;
+
+  /* Eyes are naturally one direction, have to flip */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
