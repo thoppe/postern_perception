@@ -11,7 +11,7 @@ Two demos
 
 Download pretrained model from personal repo.
 
-    LOCATION TO BE PLACED HERE.
+    https://drive.google.com/open?id=1Iqcn0clhmIM1rktqPBKOShUvyjOmDiGA
 
 
 ## Training a new model
