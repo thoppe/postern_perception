@@ -9,6 +9,7 @@ from starlette.responses import Response
 from starlette.middleware.cors import CORSMiddleware
 import cv2
 import numpy as np
+from typing import List
 
 from P0_generate_samples import eyeGAN
 
@@ -33,19 +34,23 @@ def read_root():
 
 
 @app.post("/render")
-def render(coord: Coordinate):
-    print(coord)
+def render(coords: List[Coordinate]):
+
+    # Restructure the input
+    A0 = [c.a0 for c in coords]
+    A1 = [c.a1 for c in coords]
+    f_img = [c.f_img for c in coords][0]
     
-    # Multiple images can be generated, here just serve one
-    imgs = G(coord.f_img, [coord.a0], [coord.a1])
+    # Multiple images can be generated, here just serve one   
+    imgs = G(f_img, A0, A1)
+
+    # Image is served as floats from [-1, 1], convert to uint8
+    imgs += 1
+    imgs *= 127.5
+    imgs = imgs.astype(np.uint8)
 
     # Take on the first (and only!) image
     img = imgs.reshape(*imgs.shape[1:])
-
-    # Image is served as floats from [-1, 1], convert to uint8
-    img += 1
-    img *= 127.5
-    img = img.astype(np.uint8)
 
     # Encoded with cv2, fix colorspace
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)

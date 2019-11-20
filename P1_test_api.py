@@ -13,8 +13,13 @@ url = "http://127.0.0.1:8000/render"
 
 for _ in tqdm(range(1000)):
     a0, a1 = np.random.uniform(-5, 5, size=(2,))
-    data = {"a0": a0, "a1": a1}
+    data = [{"a0": a0, "a1": a1}]
     r = requests.post(url, json=data)
+
+    if not r.ok:
+        print(r.content)
+        print(f"Failed request with {r.status_code}")
+        exit()
 
     raw_bytes = r.content
 

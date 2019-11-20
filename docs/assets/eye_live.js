@@ -42,7 +42,7 @@ async function update_eye(box, f_img, left_eye_adjust=false) {
 	    'Accept': 'application/json',
 	    'Content-Type': 'application/json'
 	},
-	body: JSON.stringify(coords)
+	body: JSON.stringify([coords])
     }
 
     try {
