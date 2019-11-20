@@ -1,6 +1,8 @@
 # eyeGAN experiments
 
-Note: This model is not completely generative, it needs to copy a source eyeball.
+Note: This model is not completely generative, it needs to copy a source eyeball. Start it with:
+
+    uvicorn API:app --reload --reload-dir '.'
 
 Two demos
 

@@ -36,20 +36,27 @@ async function update_eye(box, f_img, left_eye_adjust=false) {
         
     var url = "http://127.0.0.1:8000/render";
 
-    const response = await fetch(
-	url,
-	{
-	    method: 'POST',
-	    headers: {
-		'Accept': 'application/json',
-		'Content-Type': 'application/json'
-	    },
-	    body: JSON.stringify(coords)
-	}
-    );
-    var blob = await response.blob();  
-    var uri = URL.createObjectURL(blob);
-    box.attr("src", uri);
+    let params = {
+	method: 'POST',
+	headers: {
+	    'Accept': 'application/json',
+	    'Content-Type': 'application/json'
+	},
+	body: JSON.stringify(coords)
+    }
+
+    try {
+	let response = await fetch(url, params);
+	
+	var blob = await response.blob();  
+	var uri = URL.createObjectURL(blob);
+	box.attr("src", uri);
+    }
+    catch (err) {
+	console.log(err);
+	$("#error_message").text("API failed to respond! Fix and reload.");
+    }
+    
 }
 
 
