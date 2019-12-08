@@ -8,6 +8,9 @@ Two demos
 
 + [small eyes](https://thoppe.github.io/eye_tracking/small_eyes.html)
 + [live eyes](https://thoppe.github.io/eye_tracking/live_eyes.html) (needs a webserver running)
++ [shine eyes](https://thoppe.github.io/eye_tracking/shine_eyes.html) (needs a webserver running)
+
+
 
 Download pretrained model from personal repo.
 
