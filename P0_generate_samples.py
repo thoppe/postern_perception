@@ -4,7 +4,7 @@ import os
 import numpy as np
 import tensorflow as tf
 import cv2
-from scipy.misc import imsave, imread
+from imageio import imsave, imread
 from functools import lru_cache
 
 def chunks(l, n):
