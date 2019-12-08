@@ -4,3 +4,6 @@ scipy
 tensorflow-gpu==1.15.0
 Pillow
 imageio
+tqdm
+uvicorn
+fastapi
