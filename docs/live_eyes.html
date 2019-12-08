@@ -1,0 +1,41 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+  <!--
+  <script src="assets/eye_render.js"></script>
+  -->
+
+
+  <script type="text/javascript" src="assets/webcam.min.js"></script>
+
+
+  <!-- Load TensorflowJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2"></script>
+    <!-- Load BodyPix -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0"></script>
+
+    <script src="assets/body_pix_usage.js"></script>
+  
+</head>
+
+
+<html>
+  <body>
+
+    <div class="center header">
+      <h2>I SEE YOU</h2>
+    </div>
+
+    <div id="my_camera"></div>
+    <img id="camera_image" style="width:320px; height:320px;" ></img>
+    <h2><div class="center" id="info_message"></div></h2>
+    <h2><div class="center" id="error_message"></div></h2>
+    
+    
+  </body>
+  
+</html>
