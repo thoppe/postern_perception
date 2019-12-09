@@ -29,9 +29,13 @@ Let's up the creep factor a bit!
 
 + [shine eyes](https://thoppe.github.io/postern_perception/shine_eyes.html) (needs the webserver running)
 
-Finally, let's see what happens when we get the eyes to start tracking you...
+Let's see what happens when we get the eyes to start tracking you...
 
 + [live eyes](https://thoppe.github.io/postern_perception/live_eyes.html) (needs the webserver running)
+
+Finally, let's put it all together
+
++ [live shine](https://thoppe.github.io/postern_perception/live_shine.html) (needs the webserver running)
 
 
 ## Getting started:
