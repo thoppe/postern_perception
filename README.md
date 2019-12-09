@@ -3,6 +3,8 @@ _experiments in human-GAN vision_
 
 The idea is to see how far we can push GAN models interacting with sight or at least the perception of sight. The name "postern" was chosen as a synthetic GAN image simulates reality from the side.
 
+![](docs/assets/title_shot.jpg)
+
 Start with the first demo, a pre-rending of 25 images tracked to the mouse
 
 + [small eyes](https://thoppe.github.io/postern_perception/small_eyes.html)
@@ -30,9 +32,6 @@ Let's up the creep factor a bit!
 Finally, let's see what happens when we get the eyes to start tracking you...
 
 + [live eyes](https://thoppe.github.io/postern_perception/live_eyes.html) (needs the webserver running)
-
-
-![](docs/assets/title_shot.jpg)
 
 
 ## Getting started:
