@@ -4,21 +4,18 @@
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" type="text/css" href="assets/style.css">
-
-  <!--
-  <script src="assets/eye_render.js"></script>
-  -->
-
-
+  
   <script type="text/javascript" src="assets/webcam.min.js"></script>
-
+  <script src="assets/eye_render.js"></script>
+  <script src="assets/body_pix_usage.js"></script>
 
   <!-- Load TensorflowJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2"></script>
-    <!-- Load BodyPix -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2"></script>
 
-    <script src="assets/body_pix_usage.js"></script>
+  <!-- Load BodyPix -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0"></script>
+
+  
   
 </head>
 
@@ -27,12 +24,19 @@
   <body>
 
     <div class="center header">
-      <h2>I SEE YOU</h2>
+      <h2 id="bot_message">Loading modules</h2>
+      
+    </div>
+    
+    <div class="bar">
+      <div class="center">
+	<img id="left-eye" class="bigeye" src=""></img>
+	<img id="right-eye" class="bigeye" src=""></img>	
+      </div>
     </div>
 
     <div id="my_camera"></div>
-    <img id="camera_image" style="width:320px; height:240px;" ></img>
-    <h2><div class="center" id="info_message"></div></h2>
+    
     <h2><div class="center" id="error_message"></div></h2>
     
     

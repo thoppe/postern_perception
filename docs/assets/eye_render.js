@@ -10,11 +10,14 @@ $( document ).ready(function(e) {
     adjust_target_image(0);
 });
 		    
-$(document).mousemove(async function(e) {
+$(document).mousemove(eye_update_event);
+
+
+async function eye_update_event(e) {
     window.x = e.pageX;
     window.y = e.pageY;
     draw_all();
-});
+};
 
 function draw_all() {
     box = $("#left-eye");
@@ -25,9 +28,12 @@ function draw_all() {
 };
 
 			
-async function update_eye(box, f_img, left_eye_adjust=false) {
+async function update_eye(box, f_img, left_eye_adjust=false, coords=false) {
 
-    coords = get_rel_coordinates(box, magnitude_scale);
+    if(!coords) {
+	coords = get_rel_coordinates(box, magnitude_scale);
+    }
+    
     coords['f_img'] = f_img
 
     // left eye needs to be horz. mirrored

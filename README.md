@@ -32,6 +32,9 @@ Finally, let's see what happens when we get the eyes to start tracking you...
 + [live eyes](https://thoppe.github.io/postern_perception/live_eyes.html) (needs the webserver running)
 
 
+![](docs/assets/title_shot.jpg)
+
+
 ## Getting started:
 
 Install tensorflow and all other [requirements](requirements.txt). Download pretrained model from personal repo.
