@@ -1,6 +1,11 @@
 // REF: https://github.com/tensorflow/tfjs-models/tree/master/body-pix
 
-//var is_webcam_ready = false;
+var n_update_mSec = 500;
+var is_webcam_ready = false;
+
+var vid_width = 320;
+var vid_height = 240;
+
 
 window.onload = async function(){
     console.log("Starting to load models");
@@ -10,8 +15,8 @@ window.onload = async function(){
 
 
     Webcam.set({
-	width: 320,
-	height: 320,
+	width: vid_width,
+	height: vid_height,
 	image_format: 'jpeg',
 	jpeg_quality: 90
     });
@@ -21,11 +26,34 @@ window.onload = async function(){
 
     Webcam.on( 'load', function() {
 	is_webcam_ready = true;
+
+	var vid = document.getElementsByTagName("video")[0];
+	vid.width = vid_width;
+	vid.height = vid_height;
+	
 	console.log("Webcam loaded");
     } );
     
 
 };
+
+function update_eyes(seg) {
+    
+    //console.log(seg);
+    
+    if(!seg.allPoses.length) {
+	return false;
+    }
+
+    
+    pose = seg.allPoses[0]['keypoints'];
+    nose = pose[0]['position']
+
+    x = (2*nose['x'] / vid_width) - 1
+    y = (2*nose['y'] / vid_height) - 1
+    
+    console.log(x,y);
+}
 
 
 
@@ -36,19 +64,16 @@ async function take_snapshot() {
     
     // take snapshot and get image data
     Webcam.snap( async function(data_uri) {
-	//console.log("SNAPPED PHOTO", data_uri);
-
-	let img = document.getElementById('camera_image');
-	img.src = data_uri;
-
+	
+	var img = document.getElementsByTagName("video")[0];
+	
 	seg = await net.segmentPerson(img, {
 	    flipHorizontal: false,
 	    internalResolution: 'medium',
 	    segmentationThreshold: 0.7
 	});
 
-	console.log(seg);
-	
+	update_eyes(seg);
 	
     } );
     
@@ -58,24 +83,9 @@ async function take_snapshot() {
 window.setInterval(async function(){
 
     take_snapshot();
+
+    // Uncomment this to break down
     //is_webcam_ready = false;
 
-}, 500);
-
-
-
-var constraints = {
-  video: true
-};
-
-
-function handleSuccess(stream) {
-    window.stream = stream; // only to make stream available to console
-    video.srcObject = stream;
-    console.log("WEBCAM loaded");
-}
-
-function handleError(error) {
-  console.log('Webcam failed. getUserMedia error: ', error);
-}
+}, n_update_mSec);
 
