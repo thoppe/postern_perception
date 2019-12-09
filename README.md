@@ -6,24 +6,31 @@ The idea is to see how far we can push GAN models interacting with sight or at l
 Start with the first demo, a pre-rending of 25 images tracked to the mouse
 
 + [small eyes](https://thoppe.github.io/postern_perception/small_eyes.html)
+
+or
+
 + `fab small`
 
-exit()
+Now, let's generate eyeballs from the GAN model, completely synthethic vision from a source image. Start the server then navigate to render eyes:
+
++ `fab serve`
+
+or
+
++ `uvicorn API:app --reload --reload-dir '.'`
+
+then
+
++ [render eyes](https://thoppe.github.io/postern_perception/render_eyes.html) (needs a webserver running)
+
+Let's up the creep factor a bit!
+
++ [shine eyes](https://thoppe.github.io/postern_perception/shine_eyes.html) (needs a webserver running)
 
 
+## Getting started:
 
-
-Note: This model is not completely generative, it needs to copy a source eyeball. Start it with:
-
-    uvicorn API:app --reload --reload-dir '.'
-
-Two demos
-
-+ [small eyes](https://thoppe.github.io/eye_tracking/small_eyes.html)
-+ [render eyes](https://thoppe.github.io/eye_tracking/render_eyes.html) (needs a webserver running)
-+ [shine eyes](https://thoppe.github.io/eye_tracking/shine_eyes.html) (needs a webserver running)
-
-
+Install tensorflow and all other [requirements](requirements.txt). Download pretrained model from personal repo.
 
 Download pretrained model from personal repo.
 
@@ -32,7 +39,6 @@ Download pretrained model from personal repo.
 # Live demo uses person tracking from bodypix
 
     https://blog.tensorflow.org/2019/11/updated-bodypix-2.html
-
 
 ## Training a new model
 
