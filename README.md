@@ -1,4 +1,17 @@
-# eyeGAN experiments
+# Postern Perception
+_experiments in human-GAN vision_ 
+
+The idea is to see how far we can push GAN models interacting with sight or at least the perception of sight. Postern was chosen as a syntheic GAN image simulates reality from the side.
+
+Start with the first demo, a pre-rending of 25 images tracked to the mouse
+
++ [small eyes](https://thoppe.github.io/postern_perception/small_eyes.html)
++ `fab small`
+
+exit()
+
+
+
 
 Note: This model is not completely generative, it needs to copy a source eyeball. Start it with:
 

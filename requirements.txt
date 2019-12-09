@@ -7,3 +7,6 @@ imageio
 tqdm
 uvicorn
 fastapi
+email-validator
+
+Fabric3
