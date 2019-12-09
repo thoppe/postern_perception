@@ -6,7 +6,7 @@ var is_render_ready = true;
 
 var vid_width = 320;
 var vid_height = 240;
-
+var scale = 7.5;
 
 window.onload = async function(){
 
@@ -58,8 +58,6 @@ function update_eyes(seg) {
 
     wx = (2*nose['x'] / vid_width) - 1
     wy = (2*nose['y'] / vid_height) - 1
-
-    scale = 10;
 
     box = $("#left-eye");
     coords = {"a0" : -wx*scale, "a1" : -wy*scale}
