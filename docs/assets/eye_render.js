@@ -19,12 +19,23 @@ async function eye_update_event(e) {
     draw_all();
 };
 
+var is_still_drawing = false;
+
 function draw_all() {
+
+    if (is_still_drawing)
+	return false;
+
+    
+    is_still_drawing = true;
+        
     box = $("#left-eye");
     update_eye(box, left_eye_img, left_eye_adjust=true)
 
     box = $("#right-eye");
     update_eye(box, right_eye_img)
+
+    is_still_drawing = false;
 };
 
 			
