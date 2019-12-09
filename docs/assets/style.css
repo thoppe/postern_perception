@@ -48,6 +48,17 @@ body {
   text-align: center;
 }
 
+video {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+
+}
+
 .header {
     background-color : #EBB6B8;   
     font-size: 3vw;
